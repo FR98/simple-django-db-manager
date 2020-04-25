@@ -1,7 +1,8 @@
 # simple-django-db-manager
-Simple db manager for Django projects
+
 ##### Author: Francisco Rosal 
 ##### GitHub: https://github.com/FR98
+Simple db manager for Django projects
 
 ## To use this repo
 
@@ -17,9 +18,36 @@ Simple db manager for Django projects
 
 * Modify /your-django-project/credentials.py
 
-* To reset db and load data
+* To reset db and load data run
   ```shell
   $ python load_data.py
+  ```
+
+* Add this lines
+    * Below import os
+  ```python
+  import os
+  import sys
+  sys.path.insert(1, '../')
+  import credentials
+  ```
+    * Replace default in DATABASES
+  ```python
+  'default': {
+      'ENGINE': 'django.db.backends.postgresql',
+      'NAME': credentials.DEVELOPMENT_DATABASE['NAME'],
+      'USER': credentials.DEVELOPMENT_DATABASE['USER'],
+      'PASSWORD': credentials.DEVELOPMENT_DATABASE['PASSWORD'],
+      'HOST': credentials.DEVELOPMENT_DATABASE['HOST'],
+      'PORT': credentials.DEVELOPMENT_DATABASE['PORT'],
+  }
+  ```
+    * Recommendation: Add too...
+
+  ```python
+  LOGIN_URL = "/"
+  LOGIN_REDIRECT_URL = "home"
+  LOGOUT_REDIRECT_URL = "/"
   ```
 
 ## Tips for start your project
