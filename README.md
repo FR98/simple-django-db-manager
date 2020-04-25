@@ -14,14 +14,19 @@ Simple db manager for Django projects
   ```
 
 * Clone this repo inside your django project
-    (Tip: next to manage.py)
+    * Tip: next to manage.py
+    * Put the files outside the folder simple-django-db-manager
+      ```txt
+      your-django-project/
+         your-django-project/
+         manage.py
+         credentials.py
+         load_data.py
+         README.md
+      ```
 
 * Modify /your-django-project/credentials.py
-
-* To reset db and load data run
-  ```shell
-  $ python load_data.py
-  ```
+   * Read instructions inside credentials.py
 
 * Add this lines
     * Below import os
@@ -48,6 +53,11 @@ Simple db manager for Django projects
   LOGIN_URL = "/"
   LOGIN_REDIRECT_URL = "home"
   LOGOUT_REDIRECT_URL = "/"
+  ```
+
+* To reset db and load data run
+  ```shell
+  $ python load_data.py
   ```
 
 ## Tips for start your project
