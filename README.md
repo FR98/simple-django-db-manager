@@ -92,8 +92,9 @@ Simple db manager for Django projects
   ```shell
   $ pip install ipython
   ```
+* [Django RestFramework](https://www.django-rest-framework.org/)
     
-* Use React-Redux with your django project!
+## Use React-Redux with your django project!
   ```shell
   $ npx create-react-app your-react
   $ yarn add react-redux
