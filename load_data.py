@@ -31,7 +31,7 @@ def reset_DB():
   conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
   cursor = conn.cursor()
   
-  sure = input('Are you sure? You are going to delete all [y/n]')
+  sure = input('Are you sure? You are going to delete all [y/n]... ')
   if sure == 'y':
       cursor.execute("DROP DATABASE IF EXISTS {dbname}".format(dbname=dbname))
       cursor.execute("CREATE DATABASE {dbname}".format(dbname=dbname))
@@ -40,7 +40,7 @@ def reset_DB():
       print('\n -- Reset database canceled :)')
 
 def load_data():
-  reset = input('Maybe you would like to reset the db first [y/n]')
+  reset = input('Maybe you would like to reset the db first [y/n]... ')
   if reset == 'y':
       reset_DB()
   
@@ -64,7 +64,7 @@ def load_data():
       ))
 
       print("~ " * 75)
-      option = input("Do you want to make migrations? [y/n]...")
+      option = input("Do you want to make migrations? [y/n]... ")
       if option == 'y':
           migrations()
       print("Data loaded successfully!")
