@@ -92,9 +92,15 @@ Simple db manager for Django projects
   ```shell
   $ pip install ipython
   ```
+  
 * Python Enums
   ```shell
   $ pip install django-enumchoicefield
+  ```
+
+* Generate requirements
+  ```shell
+  $ pip freeze >> requirements.txt
   ```
 
 ## Make an API
