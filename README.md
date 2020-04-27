@@ -92,9 +92,28 @@ Simple db manager for Django projects
   ```shell
   $ pip install ipython
   ```
+* Python Enums
+  ```shell
+  $ pip install django-enumchoicefield
+  ```
+
+## Make an API
 * [Django RestFramework](https://www.django-rest-framework.org/)
+* To do list:
+   * Apps
+   * Models
+   * Serializers
+   * ViewSets
+   * Routers and Urls
+   * Custom Actions
+   * [JWT Authentication and Authorization](https://jpadilla.github.io/django-rest-framework-jwt/)
+   * Object Level Permissions
+      * pip install django-guardian
+      * [Permissions Manager](https://github.com/samuelchvez/django-rest-framework-viewset-permissions)
+
     
 ## Use React-Redux with your django project!
+* Create React App  
   ```shell
   $ npx create-react-app your-react
   $ yarn add react-redux
@@ -102,10 +121,19 @@ Simple db manager for Django projects
   $ yarn add redux-saga
   ```
     
-    Usefull to know
+* Usefull to know
   ```shell
   $ yarn add uuid
   $ yarn add lodash
   $ yarn add express
   $ yarn add react-router
   ```
+* To do list:
+   * State
+   * Types and Actions Creators
+   * Reducers
+   * Global Reducer
+   * Selectors
+   * GLobal Selector
+   * Dummy Components
+   * Smart Components
