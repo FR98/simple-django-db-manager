@@ -92,22 +92,18 @@ Simple db manager for Django projects
   ```shell
   $ pip install ipython
   ```
-  
-* Python Enums
-  ```shell
-  $ pip install django-enumchoicefield
-  ```
 
-* Generate requirements
+* Requirements
   ```shell
   $ pip freeze >> requirements.txt
+  $ pip install -r requirements.txt
   ```
 
 ## Make an API
-* [Django RestFramework](https://www.django-rest-framework.org/)
 * To do list:
    * Apps
    * Models
+   * [Django RestFramework](https://www.django-rest-framework.org/)
    * Serializers
    * ViewSets
    * Routers and Urls
@@ -140,6 +136,6 @@ Simple db manager for Django projects
    * Reducers
    * Global Reducer
    * Selectors
-   * GLobal Selector
+   * Global Selector
    * Dummy Components
    * Smart Components
