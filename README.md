@@ -109,6 +109,10 @@ Simple db manager for Django projects
   $ pip freeze >> requirements.txt
   $ pip install -r requirements.txt
   ```
+* Conexión a Interfaz Postgres
+    ```shell
+    $ psql -h localhost -U postgres -W
+    ```
 
 ## Make an API
 * To do list:
