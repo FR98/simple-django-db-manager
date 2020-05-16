@@ -136,6 +136,7 @@ Simple db manager for Django projects
   $ yarn add react-redux
   $ yarn add redux
   $ yarn add redux-saga
+  $ yarn add react-router-dom
   ```
     
 * Usefull to know
@@ -143,7 +144,6 @@ Simple db manager for Django projects
   $ yarn add uuid
   $ yarn add lodash
   $ yarn add express
-  $ yarn add react-router
   ```
 * To do list:
    * State
