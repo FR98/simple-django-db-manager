@@ -15,20 +15,18 @@ Simple db manager for Django projects
 
 * Clone this repo inside your django project
     * Tip: next to manage.py
-    * Put the files outside the folder simple-django-db-manager
       ```txt
       your-django-project/
          your-django-project/
          manage.py
          credentials.py
          load_data.py
-         README.md
       ```
 
 * Modify /your-django-project/credentials.py
    * Read instructions inside credentials.py
 
-* Add this lines
+* Add this lines on /your-django-project/settings.py
     * Below import os
   ```python
   import os
@@ -62,10 +60,36 @@ Simple db manager for Django projects
 
 ## Tips for start your project
 
+* [Instalar Python](https://www.python.org/)
+* [Instalar Postgres](https://www.postgresql.org/)
+* Instalar Python Environment
+    ```shell
+    $ sudo apt install python3-env
+    ```
+* Crear, activar y desactivar python env
+    ```shell
+    $ python3 -m venv venv
+    $ source venv/bin/activate
+    ```
+* [Instalar Django](https://docs.djangoproject.com/en/3.0/topics/install/)
+    ```shell
+    $ python -m pip install Django
+    ```
+* [Instalar psycopg2](https://www.psycopg.org/)
+    * Instalar y comprobar instalación
+    ```shell
+    $ pip install psycopg2
+    $ python -c "import psycopg2" --verbose
+    ```
+* Instalar ipython 
+    ```shell
+    $ pip install ipython
+    ```
 * Create project
   ```shell
   $ django-admin startproject your-django-project
   ```
+* Configure database 
 * Run Server
   ```shell
   $ python manage.py runserver
@@ -80,19 +104,6 @@ Simple db manager for Django projects
   ```
     
  ## You would like to know...
-* Use Python Environment!
-  ```shell
-  $ sudo apt install python3-env
-  $ python3 -m venv venv
-  $ source venv/bin/activate
-  $ deactivate
-  ```
-
-* Use ipython 
-  ```shell
-  $ pip install ipython
-  ```
-
 * Requirements
   ```shell
   $ pip freeze >> requirements.txt
