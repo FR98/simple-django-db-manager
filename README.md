@@ -109,7 +109,7 @@ Simple db manager for Django projects
   $ pip freeze >> requirements.txt
   $ pip install -r requirements.txt
   ```
-* Conexión a Interfaz Postgres
+* CLI Postgres
     ```shell
     $ psql -h localhost -U postgres -W
     ```
@@ -119,14 +119,135 @@ Simple db manager for Django projects
    * Apps
    * Models
    * [Django RestFramework](https://www.django-rest-framework.org/)
+      ```shell
+      $ pip install djangorestframework
+      $ pip install django-filter
+      ```
+      settings.py
+      ```python
+      INSTALLED_APPS = [
+          ...
+          'rest_framework',
+      ]
+
+      REST_FRAMEWORK = {
+          'DEFAULT_PERMISSION_CLASSES': [
+              'rest_framework.permissions.AllowAny',
+          ],
+      }
+      ```
+      urls.py
+      ```python
+      from django.contrib import admin
+      from django.conf.urls import url, include
+
+      urlpatterns = [
+          url('admin/', admin.site.urls),
+          url(r'^api-auth/', include('rest_framework.urls', namespace = 'rest_framework')),
+      ]
+      ```
    * Serializers
    * ViewSets
    * Routers and Urls
+      
+      urls.py
+      ```python
+      from rest_framework import routers
+
+      from users.views import UserViewSet
+
+      router = routers.DefaultRouter()
+      router.register(r'users', UserViewSet)
+
+      urlpatterns = [
+          ...
+          url(r'^api/', include(router.urls)),
+      ]
+      ```
    * Custom Actions
    * [JWT Authentication and Authorization](https://jpadilla.github.io/django-rest-framework-jwt/)
+      ```shell
+      $ pip install djangorestframework-jwt
+      ```
+      settings.py
+      ```python
+      REST_FRAMEWORK = {
+          'DEFAULT_PERMISSION_CLASSES': [
+              # 'rest_framework.permissions.AllowAny',
+              'rest_framework.permissions.IsAuthenticated',
+          ],
+          'DEFAULT_AUTHENTICATION_CLASSES': (
+              'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+              # 'rest_framework.authentication.SessionAuthentication',
+              # 'rest_framework.authentication.BasicAuthentication',
+          ),
+      }
+
+      JWT_AUTH = {
+          'JWT_ALLOW_REFRESH': True,
+          'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600),
+      }
+      ```
+      urls.py
+      ```python
+      from rest_framework_jwt.views import (
+          obtain_jwt_token,
+          refresh_jwt_token,
+          verify_jwt_token,
+      )
+
+      urlpatterns = [
+          ...
+          url(r'^api-token/auth/', obtain_jwt_token),
+          url(r'^api-token/refresh/', refresh_jwt_token),
+          url(r'^api-token/verify/', verify_jwt_token),
+      ]
+      ```
    * Object Level Permissions
-      * pip install django-guardian
-      * [Permissions Manager](https://github.com/samuelchvez/django-rest-framework-viewset-permissions)
+      ```shell
+      $ pip install django-guardian
+      ```
+      * [Save into users app as permissions.py](https://github.com/samuelchvez/django-rest-framework-viewset-permissions)
+      
+      settings.py
+      ```python
+      INSTALLED_APPS = [
+          ...
+          'rest_framework',
+          'guardian',
+      ]
+
+      AUTHENTICATION_BACKENDS = (
+          'django.contrib.auth.backends.ModelBackend',
+          'guardian.backends.ObjectPermissionBackend'
+      )
+      ```
+      views.py
+      ```python
+      from django.contrib.auth.models import User
+      from users.permissions import APIPermissionClassFactory
+
+      class UserViewSet(viewsets.ModelViewSet):
+      queryset = User.objects.all()
+      serializer_class = UserSerializer
+      permission_classes = (
+          APIPermissionClassFactory(
+              name='UserPermission',
+              permission_configuration={
+                  'base': {
+                      'create': True,
+                      'list': True,
+                  },
+                  'instance': {
+                      'retrieve': True,
+                      'update': True,
+                      'partial_update': True,
+                      'destroy': True,
+                  }
+              }
+          ),
+      )
+      ```
 
     
 ## Use React-Redux with your django project!
