@@ -258,6 +258,9 @@ Simple db manager for Django projects
   $ yarn add redux
   $ yarn add redux-saga
   $ yarn add react-router-dom
+  $ yarn add redux-persist
+  $ yarn add jwt-decoded
+  $ yarn add normalizr
   ```
     
 * Usefull to know
